@@ -233,15 +233,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab73ce2e69905a4e9eb0050456473f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Valor1: 0
-  Operacion: 
-  Valor2: 0
-  Resultado: 0
-  Operaciones:
-  - Sumar
-  - Restar
-  - Multiplicar
-  - Dividir
+  value1: 2
+  value2: 6
+  add: 1
+  subtract: 0
+  multiply: 0
+  divide: 1
+  result: 0
 --- !u!4 &1303712986
 Transform:
   m_ObjectHideFlags: 0
