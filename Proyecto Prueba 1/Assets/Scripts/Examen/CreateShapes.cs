@@ -14,22 +14,7 @@ public class CreateShapes : MonoBehaviour
 	Triangle triangle1;
 	
 	Rectangle rectangle1;
-	
 
-    // Start is called before the first frame update
-    void Start()
-	{
-		Application.targetFrameRate = 60;
-		
-	    Create();
-	    DebugFigures();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
 	//creates one of each shape type
 	public void Create()
@@ -44,6 +29,8 @@ public class CreateShapes : MonoBehaviour
 		
 
 		rectangle1 = new Rectangle(Random.Range(1,5), Random.Range(1,5));
+		
+		DebugFigures();
 
 		
 	}
