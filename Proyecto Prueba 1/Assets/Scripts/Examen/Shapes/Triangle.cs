@@ -12,7 +12,7 @@ public class Triangle
 	public float length3;
 	
 	// Constructors
-	public Triangle(int aSides, int aLenght1, int aLenght2, int aLenght3 )
+	public Triangle( float aLenght1, float aLenght2, float aLenght3 )
 	{
 		length1 = aLenght1;
 		length2 = aLenght2;

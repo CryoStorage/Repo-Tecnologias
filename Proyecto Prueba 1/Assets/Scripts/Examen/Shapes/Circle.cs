@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Circle : MonoBehaviour
+public class Circle
 {
 	// Attributes
-	float radius;
+	public float radius;
 	
 	// Constructors
 	public Circle(float aRadius)

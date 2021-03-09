@@ -7,13 +7,22 @@ public class CreateShapes : MonoBehaviour
 	[SerializeField]
 	private int toCreate;
 	
+	Circle circle1;
 	
+	Square square1;
 	
+	Triangle triangle1;
 	
+	Rectangle rectangle1;
+	
+
     // Start is called before the first frame update
     void Start()
-    {
-        
+	{
+		Application.targetFrameRate = 60;
+		
+	    Create();
+	    DebugFigures();
     }
 
     // Update is called once per frame
@@ -22,24 +31,35 @@ public class CreateShapes : MonoBehaviour
         
     }
     
-	//creates three of each shape type
+	//creates one of each shape type
 	public void Create()
 	{
-		Circle circle1 = new Circle(32);
-		Circle circle2 = new Circle(55.3f);
-		Circle circle3 = new Circle(9);
+		circle1 = new Circle(Random.Range(1f,5f));
+
 		
-		Square square1 = new Square(5);
-		Square square2 = new Square(8);
-		Square square3 = new Square(3.5f);
+		square1 = new Square(Random.Range(1f,5f));
+
 		
-		Triangle triangle1 = new Triangle();
-		Triangle triangle2 = new Triangle();
-		Triangle triangle3 = new Triangle();
+		triangle1 = new Triangle(2f,4f,12f);
 		
-		Rectangle rectangle1 = new Rectangle();
-		Rectangle rectangle2 = new Rectangle();
-		Rectangle rectangle3 = new Rectangle();
+
+		rectangle1 = new Rectangle(Random.Range(1,5), Random.Range(1,5));
+
+		
+	}
+	
+	//debugs the properties of each shape created
+	public void DebugFigures()
+	{
+		Debug.Log("Shape type is: " + circle1 + ", Radius is: " + circle1.radius);
+		
+		Debug.Log("Shape type is: " + square1 + ", Side Lenght is: " + square1.length);
+		
+		Debug.Log("Shape type is: " + triangle1 + ", Side1 Lenght is: " + triangle1.length1 + 
+			", side2 Lenght is: " + triangle1.length2 + ", side3 Lenght is: " + triangle1.length3);
+			
+		Debug.Log("Shape type is: " + rectangle1 + ", Side1 Lenght is: " + rectangle1.length1 +
+			", Side2 Lenght is: " + rectangle1.length2);
 		
 	}
 }

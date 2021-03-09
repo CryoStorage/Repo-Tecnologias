@@ -4,15 +4,58 @@ using UnityEngine;
 
 public class Coin : Circle
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private float worth;
+	
+	private string color;
+	
+	private float weight;
+	
+	public Coin(float aWorth, string aColor, float aWeight)
+	{
+		worth = aWorth;
+		color = aColor;
+		weight = aWeight;
+		
+	}
+	
+	// Getters Setters Properties
+	public float Worth
+	{
+		get 
+		{
+			return worth;
+		}
+		
+		set 
+		{
+		
+			Worth = value;
+		}
+	}
+	
+	public string Color
+	{
+		get 
+		{
+			return color;
+		}
+		
+		set 
+		{
+		 color	= value;
+		}
+	}	
+	
+	public float Weight
+	{
+		get 
+		{
+			return weight;
+		}
+		
+		set 
+		{
+			weight	= value;
+		}
+	}
 }
