@@ -39,14 +39,8 @@ public class Book : BaseBook
 		get {return year;}
 		set
 		{
-			if (value != null)
-			{
 				year = value;	
-				
-			}else
-			{
-				year = 0;
-			}
+
 		}
 	}
 	

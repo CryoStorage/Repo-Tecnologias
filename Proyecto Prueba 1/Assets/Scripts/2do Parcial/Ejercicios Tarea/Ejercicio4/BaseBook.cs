@@ -64,14 +64,8 @@ public class BaseBook
 		get {return pages ;}
 		set 
 		{
-			if (value != null)
-			{
 				pages = value;	
-				
-			}else
-			{
-				pages = 0;
-			}
+
 		}
 	}
 }

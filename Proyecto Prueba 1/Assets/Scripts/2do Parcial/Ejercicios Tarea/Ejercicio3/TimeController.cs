@@ -5,9 +5,9 @@ using UnityEngine;
 public class TimeController : MonoBehaviour
 {
 	
-	[SerializeField] private float newHour;
-	[SerializeField] private float newMinute;
-	[SerializeField] private float newSecond;
+	[SerializeField] private float newHour = 0;
+	[SerializeField] private float newMinute = 0;
+	[SerializeField] private float newSecond = 0;
 	
 	CustomTime customTime;
 	
@@ -44,12 +44,12 @@ public class TimeController : MonoBehaviour
 	
 	void CheckTime()
 	{
-		if (customTime.Second >= 60f)
+		if (customTime.Second >= 59f)
 		{
 			AddMinute();
 		}
 		
-		if (customTime.Minute >= 60f)
+		if (customTime.Minute >= 59f)
 		{
 			AddHour();
 		}

@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
+using UnityEngine.UI;
 
 public class Library : MonoBehaviour
 {
+	
+	[SerializeField] private Button replacer;
 	
 	[SerializeField] private static int capacity = 4;
 	public Book[] books = new Book[capacity];
 	private int currentBooks = 0;
 	[SerializeField] private int toReplace;
-	
+
 	// Parameters of book to be created
 	[SerializeField]string newTitle;
 	[SerializeField]string newAuthor;
@@ -19,12 +21,20 @@ public class Library : MonoBehaviour
 	[SerializeField]string newGenre;
 	[SerializeField]string newCondition;
 	[SerializeField]string newColor;
+	static Book book0 = new Book ("book1", "pepe", 200, 1999, "fiction", "used", "green");
 	
+
 	
-	Book book0 = new Book ("book1", "pepe", 200, 1999, "fiction", "used", "green");
+	void Update()
+	{
+		ActivateReplacer();
+		
+	}
 	
 	void Start()
 	{
+		Application.targetFrameRate = 30;
+		
 		books[0] = book0;
 		
 		CheckCapacity();
@@ -32,25 +42,28 @@ public class Library : MonoBehaviour
 		
 	}
 	
-	void ModifyArray(Book temp, int id)
+	public void ModifyArray(Book temp, int id)
 	{
+		ReplaceBook(temp, toReplace);
+		CheckCapacity();
+
+	
+	}
+	
+	public void ModifyArray(Book newBook)
+	{
+		CheckCapacity();
 		
 		if (currentBooks >= capacity)
 		{
-			ReplaceBook(temp, toReplace);
-			CheckCapacity();
+			Debug.Log("Capacity Exeeded, a book must be replaced");
+			ModifyArray(newBook, toReplace);
+				
 		}else
 		{
-			AddBook(temp, currentBooks);
-			CheckCapacity();
-		}
-	}
-	
-	void ModifyArray(Book temp)
-	{
-		AddBook(temp, currentBooks);
-		CheckCapacity();
-
+			AddBook(newBook, currentBooks);
+			
+			}
 	}
 	
 	public void ShowBooks()
@@ -59,9 +72,9 @@ public class Library : MonoBehaviour
 		{
 			if (books[i] != null)
 			{
-				Debug.Log("Book" + i + " is: " + books[i].Title + " By: " +  books[i].Author + ", " +books[i].Pages + 
-					" Pages Long, " + "published in: " + books[i].year + "Genre: " + books[i].genre + " Condition: " + 
-					books[i].condition + "Color: " + books[i].color);
+				Debug.Log("Book"+i+" is: "+books[i].Title+" By: "+ books[i].Author+", " +books[i].Pages+
+				" Pages Long, " + "published in: " + books[i].year + "Genre: " + books[i].genre +
+				" Condition: "+books[i].condition+"Color: "+books[i].color);
 			}else
 			{
 				Debug.Log("Array Ends");
@@ -100,7 +113,7 @@ public class Library : MonoBehaviour
 		{
 			if (book is Book)
 			{
-				currentBooks ++;
+				currentBooks += 1;
 				Debug.Log("Current Books: " + currentBooks);
 			}
 		}
@@ -110,15 +123,26 @@ public class Library : MonoBehaviour
 	
 	public void CreateBook(string title, string author, int pages, int year, string genre, string condition, string color)
 	{
-		Book temp = new Book (title,author,pages, year, genre, condition, color);
-		ModifyArray(temp);
+		Book newBook = new Book (title,author,pages, year, genre, condition, color);
+		ModifyArray(newBook);
 		
 	}
 	
-	
-	void ReplaceBook(Book temp, int id)
+	public void ActivateReplacer()
 	{
-		books[id] = temp;
+		if (currentBooks >= capacity)
+		{
+			replacer.enabled = true;
+		}else{replacer.enabled = false;}
+		
 		
 	}
+	
+	void ReplaceBook(Book newBook, int id)
+	{
+		books[toReplace] = newBook;
+		
+	}
+	
+
 }
