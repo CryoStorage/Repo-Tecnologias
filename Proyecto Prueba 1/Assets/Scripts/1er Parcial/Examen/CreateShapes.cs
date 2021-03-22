@@ -7,7 +7,7 @@ public class CreateShapes : MonoBehaviour
 	[SerializeField]
 	private int toCreate;
 	
-	Circle circle1;
+	ExamCircle circle1;
 	
 	Square square1;
 	
@@ -19,7 +19,7 @@ public class CreateShapes : MonoBehaviour
 	//creates one of each shape type
 	public void Create()
 	{
-		circle1 = new Circle(Random.Range(1f,5f));
+		circle1 = new ExamCircle(Random.Range(1f,5f));
 
 		
 		square1 = new Square(Random.Range(1f,5f));

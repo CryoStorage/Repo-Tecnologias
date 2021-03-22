@@ -6,58 +6,50 @@ public class RaceManager : MonoBehaviour
 {	
 	[SerializeField]
 	private int numberOfRacers;
-	public Racer[] racers;
+	private List<Racer> racers = new List<Racer>();
+	 
+	Racer bycicle = new Racer(26.92f, "bycicle");
+	Racer supra = new Racer(263f, "Supra");
+	Racer aventador = new Racer(350f, "aventador");
+	Racer schoolBus = new Racer(50f, "schoolBus");
+	Racer shermanTank = new Racer(46f, "shermanTank");
+	Racer lowRiderS = new Racer(193.12f, "lowRiderS");
+	Racer kawasakiNinja = new Racer(190f, "kawasakiNinja");
+	Racer teslaModel3 = new Racer(261f, "teslaModel3");
+	Racer mustang = new Racer(262f, "mustang");
+	Racer fordFocus = new Racer(208f, "fordFocus");
 	
-	Racer bycicle;
-	Racer supra;
-	Racer aventador;
-	Racer schoolBus;
-	Racer shermanTank;
-	Racer lowRiderS;
-	Racer kawasakiNinja;
-	Racer teslaModel3;
-	Racer mustang;
-	Racer fordFocus;
-	
+
 	// Start is called before the first frame update
-	/*void Start()
+	void Start()
     {
 	    CreateRacers();
-	    AddToArray();
+	    AddToList();
     }
     
 	public void	CreateRacers()
 	{
-		bycicle = new Racer(26.92f, "bycicle");
-		supra = new Racer(263f, "Supra");
-		aventador = new Racer(350f, "aventador");
-		schoolBus = new Racer(50f, "schoolBus");
-		shermanTank = new Racer(46f, "shermanTank");
-		lowRiderS = new Racer(193.12f, "lowRiderS");
-		kawasakiNinja = new Racer(190f, "kawasakiNinja");
-		teslaModel3 = new Racer(261f, "teslaModel3");
-		mustang = new Racer(262f, "mustang");
-		fordFocus = new Racer(208f, "fordFocus");
+
 	
 	}
 	
-	void AddToArray()
+	void AddToList()
 	{
-		racers [0] = bycicle;
-		racers [1] = supra;
-		racers [2] = aventador;
-		racers [3] = schoolBus;
-		racers [4] = shermanTank;
-		racers [5] = lowRiderS;
-		racers [6] = kawasakiNinja;
-		racers [7] = teslaModel3;
-		racers [8] = mustang;
-		racers [9] = fordFocus;
+		racers.Add(bycicle);
+		racers.Add(supra);
+		racers.Add(aventador);
+		racers.Add(schoolBus);
+		racers.Add(shermanTank);
+		racers.Add(lowRiderS);
+		racers.Add(kawasakiNinja);
+		racers.Add(teslaModel3);
+		racers.Add(mustang);
+		racers.Add(fordFocus);
 	}
 	
 	public void ShowRacers()
 	{
-		for (int i = 0; i < racers.Length ; i++) 
+		for (int i = 0; i < racers.Capacity ; i++) 
 		{
 			Debug.Log(racers[i]);
 			
@@ -69,5 +61,5 @@ public class RaceManager : MonoBehaviour
 	{
 		
 		
-	}*/
+	}
 }
